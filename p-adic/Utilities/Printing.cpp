@@ -23,16 +23,4 @@ namespace Utilities
         cout << ")";
         return stream;
     }
-
-    template <typename T>
-    ostream& operator<< (ostream& stream, const T& p) {
-        string sep = "";
-        cout << "{";
-        for (int i = 0; i < (int)p.size(); ++i) {
-            cout << sep << p[i];
-            sep = ", ";
-        }
-        cout << "}";
-        return stream;
-    }
 }

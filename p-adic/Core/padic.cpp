@@ -10,7 +10,7 @@ using namespace std;
 
 namespace padic_arithmetic
 {
-    padic padic::construct(int p, int number) {
+    padic padic::construct(Type p, int number) {
         const bool negative = number < 0;
         if (negative) number = -number;
 
@@ -31,7 +31,7 @@ namespace padic_arithmetic
         for (; i < size; ++i) {
             res.coefs_.push_back(coefs[i]);
         }
-        res.period_ = (unsigned char)res.coefs_.size();
+        res.period_ = (Type)res.coefs_.size();
 
         if (negative) {
             res.negate();

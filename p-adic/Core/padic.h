@@ -6,21 +6,22 @@ namespace padic_arithmetic
 {
     class padic {
     public:
-        static padic construct(int p, int number);
+        using Type = unsigned char;
+        static padic construct(Type p, int number);
 
-        padic(unsigned char p) : p_(p), base_(0) {}
+        padic(Type p) : p_(p), base_(0) {}
 
         void negate();
 
     public:
-        unsigned char base() const { return base_; }
-        unsigned char period() const { return period_; }
-        const std::vector<unsigned char>& coefs() const { return coefs_; }
+        int base() const { return base_; }
+        Type period() const { return period_; }
+        const std::vector<Type>& coefs() const { return coefs_; }
 
     private:
-        const unsigned char p_;
-        unsigned char base_;
-        unsigned char period_;
-        std::vector<unsigned char> coefs_;
+        const Type p_;
+        int base_;
+        Type period_;
+        std::vector<Type> coefs_;
     };
 }
