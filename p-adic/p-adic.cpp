@@ -1,11 +1,13 @@
 #include "stdafx.h"
 
 #include "Core\padic.h"
+#include "Utilities\Printing.h"
 
 #include <iostream>
 
 using namespace std;
 using namespace padic_arithmetic;
+using namespace Utilities;
 
 int main()
 {

@@ -10,14 +10,17 @@ namespace padic_arithmetic
 
         padic(unsigned char p) : p_(p), base_(0) {}
 
-        friend std::ostream& operator<< (std::ostream& stream, const padic& p);
-
         void negate();
+
+    public:
+        unsigned char base() const { return base_; }
+        unsigned char period() const { return period_; }
+        const std::vector<unsigned char>& coefs() const { return coefs_; }
 
     private:
         const unsigned char p_;
         unsigned char base_;
         unsigned char period_;
-        std::vector<char> coefs_;
+        std::vector<unsigned char> coefs_;
     };
 }

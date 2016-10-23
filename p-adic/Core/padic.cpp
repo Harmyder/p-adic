@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#include "padic.h"
+#include "Core\padic.h"
 
 #include <iostream>
 #include <string>
@@ -14,10 +14,10 @@ namespace padic_arithmetic
         const bool negative = number < 0;
         if (negative) number = -number;
 
-        int size = ceil(floor(log(number) / log(p)) + 1);
+        int size = (int)ceil(floor(log(number) / log(p)) + 1);
         padic res(p);
 
-        int divider = pow(p, size - 1);
+        int divider = (int)pow(p, size - 1);
         decltype(res.coefs_) coefs;
         for (int i = 0; i < size; ++i) {
             coefs.push_back(number / divider);
@@ -31,7 +31,7 @@ namespace padic_arithmetic
         for (; i < size; ++i) {
             res.coefs_.push_back(coefs[i]);
         }
-        res.period_ = res.coefs_.size();
+        res.period_ = (unsigned char)res.coefs_.size();
 
         if (negative) {
             res.negate();
@@ -45,17 +45,5 @@ namespace padic_arithmetic
         for (int i = 1; i < (int)coefs_.size(); ++i) {
             coefs_[i] = p_ - coefs_[i] - 1;
         }
-    }
-
-    ostream& operator<< (ostream& stream, const padic& p) {
-        if (p.base_ >= 0) stream << ".";
-        for (int i = 0; i < abs(p.base_); ++i) cout << "0";
-        if (p.base_ < 0) stream << ".";
-        for (int i = 0; i < p.coefs_.size(); ++i) {
-            stream << (int)p.coefs_[i];
-            if (i == p.period_ - 1) cout << "(";
-        }
-        cout << ")";
-        return stream;
     }
 }
