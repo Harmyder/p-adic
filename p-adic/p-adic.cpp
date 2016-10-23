@@ -15,15 +15,16 @@ namespace padic_arithmetic
             const bool negative = number < 0;
             if (negative) number = -number;
 
-            int size = ceil(log(number) / log(p));
+            int size = ceil(floor(log(number) / log(p)) + 1);
             padic res;
             res.coefs_.resize(size);
             res.p_ = p;
 
-            int divider = 1;
+            int divider = pow(p, size - 1);
             for (int i = 0; i < size; ++i) {
-                res.coefs_[i] = number % (divider * p) / divider;
-                divider *= p;
+                res.coefs_[size - 1 - i] = number / divider;
+                number %= divider;
+                divider /= p;
             }
 
             res.as_ = res.cs_ = 0;
@@ -81,6 +82,8 @@ using namespace padic_arithmetic;
 
 int main()
 {
+    padic p2 = padic::construct(2, 256);
+    cout << p2 << endl;
     padic p = padic::construct(5, 199);
     cout << p << endl;
     padic p1 = padic::construct(5, -199);
