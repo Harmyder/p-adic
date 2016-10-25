@@ -166,14 +166,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\p-adic\Core\cont_frac.h" />
     <ClInclude Include="..\p-adic\Core\padic.h" />
+    <ClInclude Include="..\p-adic\Utilities\Debug.h" />
     <ClInclude Include="..\p-adic\Utilities\Printing.h" />
     <ClInclude Include="Core\MyCppUnitTestFramework.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\p-adic\Core\cont_frac.cpp" />
     <ClCompile Include="..\p-adic\Core\padic.cpp" />
+    <ClCompile Include="..\p-adic\Utilities\Debug.cpp" />
     <ClCompile Include="..\p-adic\Utilities\Printing.cpp" />
+    <ClCompile Include="Core\unittest_cont_frac.cpp" />
     <ClCompile Include="Core\unittest_padic.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

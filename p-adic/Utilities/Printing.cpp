@@ -8,7 +8,7 @@
 #include "Core\padic.h"
 
 using namespace std;
-using namespace padic_arithmetic;
+using namespace Core;
 
 namespace Utilities
 {

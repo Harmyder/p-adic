@@ -7,7 +7,7 @@
 #include "Utilities\Printing.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace padic_arithmetic;
+using namespace Core;
 using namespace std;
 using namespace Utilities;
 

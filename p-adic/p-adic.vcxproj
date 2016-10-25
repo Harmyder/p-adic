@@ -154,12 +154,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Core\cont_frac.h" />
     <ClInclude Include="Core\padic.h" />
+    <ClInclude Include="Utilities\Debug.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Utilities\Printing.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Core\cont_frac.cpp" />
     <ClCompile Include="Core\padic.cpp" />
+    <ClCompile Include="Utilities\Debug.cpp" />
     <ClCompile Include="p-adic.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

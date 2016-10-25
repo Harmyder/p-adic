@@ -8,13 +8,13 @@
 
 using namespace std;
 
-namespace padic_arithmetic
+namespace Core
 {
     padic padic::construct(Type p, int number) {
         const bool negative = number < 0;
         if (negative) number = -number;
 
-        int size = (int)ceil(floor(log(number) / log(p)) + 1);
+        int size = int(floor(log(number) / log(p)) + 1);
         padic res(p);
 
         int divider = (int)pow(p, size - 1);
@@ -38,6 +38,10 @@ namespace padic_arithmetic
         }
 
         return move(res);
+    }
+
+    padic padic::construct(Type p, float number) {
+        return padic(p);
     }
 
     void padic::negate() {

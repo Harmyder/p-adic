@@ -2,14 +2,13 @@
 
 #include <vector>
 
-namespace padic_arithmetic
+namespace Core
 {
     class padic {
     public:
         using Type = unsigned char;
         static padic construct(Type p, int number);
-
-        padic(Type p) : p_(p), base_(0) {}
+        static padic construct(Type p, float number);
 
         void negate();
 
@@ -17,6 +16,9 @@ namespace padic_arithmetic
         int base() const { return base_; }
         Type period() const { return period_; }
         const std::vector<Type>& coefs() const { return coefs_; }
+
+    private:
+        padic(Type p) : p_(p), base_(0) {}
 
     private:
         const Type p_;

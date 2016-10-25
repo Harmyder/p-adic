@@ -7,7 +7,7 @@
 #include <sstream>
 
 using namespace std;
-using namespace padic_arithmetic;
+using namespace Core;
 using namespace Utilities;
 
 int main()
@@ -18,4 +18,5 @@ int main()
     _s << vv;
     return 0;
 }
+
 

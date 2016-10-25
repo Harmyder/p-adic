@@ -29,6 +29,12 @@
     <ClInclude Include="Core\MyCppUnitTestFramework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\p-adic\Core\cont_frac.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\p-adic\Utilities\Debug.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -41,6 +47,15 @@
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="..\p-adic\Utilities\Printing.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\p-adic\Core\cont_frac.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\unittest_cont_frac.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\p-adic\Utilities\Debug.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
   </ItemGroup>
