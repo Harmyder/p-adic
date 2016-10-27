@@ -10,7 +10,8 @@ namespace Core
         explicit cont_frac(const int i);
         cont_frac(double r, const unsigned char max_len);
 
-        operator double() const;
+        double to_double() const;
+        std::pair<long, long> to_fraction(const long max_denom) const;
 
         const std::vector<long>& coefs() const { return coefs_; }
 
