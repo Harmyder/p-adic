@@ -1,10 +1,13 @@
 #include "stdafx.h"
 
 #include "Core\padic.h"
+#include "Core\cont_frac.h"
+#include "Core\euclid.h"
 
+#include <cmath>
 #include <iostream>
 #include <string>
-#include <cmath>
+#include <tuple>
 
 using namespace std;
 
@@ -26,7 +29,7 @@ namespace Core
         }
         reverse(begin(coefs), end(coefs));
         int i = 0;
-        while (coefs[i] == 0) i++;
+        while (i < (int)coefs.size() && coefs[i] == 0) i++;
         res.base_ = i;
         for (; i < size; ++i) {
             res.coefs_.push_back(coefs[i]);
@@ -40,8 +43,34 @@ namespace Core
         return move(res);
     }
 
-    padic padic::construct(Type p, float number) {
-        return padic(p);
+    padic padic::construct(Type p, fraction<long> frac, char size) {
+        long c = frac.n;
+        long d = frac.d;
+
+        padic res(p);
+        while (c % p == 0) {
+            ++res.base_;
+            c /= p;
+        }
+        while (d % p == 0) {
+            --res.base_;
+            d /= p;
+        }
+        for (int i = 0; i < size; ++i) {
+            if (c % p == 0) {
+                res.coefs_.push_back(0);
+                c /= p;
+                continue;
+            }
+            auto d_inv = (unsigned char)inv_mod<long>(d, p);
+            char signed_rem = c * d_inv % p;
+            res.coefs_.push_back(signed_rem < 0 ? p + signed_rem : signed_rem);
+            c -= d * res.coefs_.back();
+            c /= p;
+            assert(1 == gcd(c, d));
+        }
+
+        return res;
     }
 
     void padic::negate() {

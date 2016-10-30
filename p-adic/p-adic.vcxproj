@@ -155,14 +155,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Core\cont_frac.h" />
+    <ClInclude Include="Core\euclid.h" />
     <ClInclude Include="Core\padic.h" />
+    <ClInclude Include="Core\farey.h" />
+    <ClInclude Include="Core\fraction.h" />
     <ClInclude Include="Utilities\Debug.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Utilities\Printing.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\cont_frac.cpp" />
+    <ClCompile Include="Core\euclid.cpp" />
     <ClCompile Include="Core\padic.cpp" />
+    <ClCompile Include="Core\farey.cpp" />
+    <ClCompile Include="Core\fraction.cpp" />
     <ClCompile Include="Utilities\Debug.cpp" />
     <ClCompile Include="p-adic.cpp" />
     <ClCompile Include="stdafx.cpp">

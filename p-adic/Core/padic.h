@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include "Core\fraction.h"
 
 namespace Core
 {
@@ -8,7 +9,7 @@ namespace Core
     public:
         using Type = unsigned char;
         static padic construct(Type p, int number);
-        static padic construct(Type p, float number);
+        static padic construct(Type p, fraction<long> number, char size);
 
         void negate();
 
@@ -18,7 +19,7 @@ namespace Core
         const std::vector<Type>& coefs() const { return coefs_; }
 
     private:
-        padic(Type p) : p_(p), base_(0) {}
+        padic(Type p) : p_(p), base_(0), period_(0) {}
 
     private:
         const Type p_;

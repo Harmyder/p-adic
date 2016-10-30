@@ -35,6 +35,12 @@
     <ClInclude Include="..\p-adic\Utilities\Debug.h">
       <Filter>Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="..\p-adic\Core\farey.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\p-adic\Core\fraction.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -57,6 +63,18 @@
     </ClCompile>
     <ClCompile Include="..\p-adic\Utilities\Debug.cpp">
       <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\p-adic\Core\farey.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\p-adic\Core\fraction.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\unittest_farey.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\unittest_fraction.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -4,12 +4,10 @@
 #include "CppUnitTest.h"
 
 #include "Core\cont_frac.h"
-#include "Utilities\Printing.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace Core;
 using namespace std;
-using namespace Utilities;
 
 namespace UnitTests
 {
@@ -70,24 +68,24 @@ namespace UnitTests
             const double delta = 1.e-8;
             {
                 cont_frac cf(1.1, 2);
-                pair<long, long> d = cf.to_fraction(10);
-                Assert::AreEqual(d.first, 11l);
-                Assert::AreEqual(d.second, 10l);
+                fraction<long> d = cf.to_fraction(10);
+                Assert::AreEqual(d.n, 11l);
+                Assert::AreEqual(d.d, 10l);
             }
 
             {
                 cont_frac cf(1. / 3., 100);
-                pair<long, long> d = cf.to_fraction(3);
-                Assert::AreEqual(d.first, 1l);
-                Assert::AreEqual(d.second, 3l);
+                fraction<long> d = cf.to_fraction(3);
+                Assert::AreEqual(d.n, 1l);
+                Assert::AreEqual(d.d, 3l);
             }
 
             {
                 double gr = 1.61803398874989484;
                 cont_frac golden(gr, 100);
-                pair<long, long> d = golden.to_fraction(numeric_limits<long>::max());
-                Assert::AreEqual(d.first, 559986409l);
-                Assert::AreEqual(d.second, 346090634l, delta);
+                fraction<long> d = golden.to_fraction(numeric_limits<long>::max());
+                Assert::AreEqual(d.n, 559986409l);
+                Assert::AreEqual(d.d, 346090634l, delta);
             }
 
             {
@@ -96,12 +94,12 @@ namespace UnitTests
                 try {
                     cont_frac cf(1., 2);
                     cf.to_fraction(max_den);
-                    _swprintf(message, L"No exception for max_den %l", max_den);
+                    _swprintf(message, L"No exception for max_den %d", max_den);
                     Assert::Fail(message, LINE_INFO());
                 }
                 catch (std::domain_error ex) {}
                 catch (...) {
-                    _swprintf(message, L"Incorrect exception for %l", max_den);
+                    _swprintf(message, L"Incorrect exception for %d", max_den);
                     Assert::Fail(message, LINE_INFO());
                 }
             }

@@ -24,5 +24,13 @@ namespace UnitTests
             Assert::AreEqual(padic::Type(1), p2.period());
             Assert::AreEqual({1}, p2.coefs());
         }
+
+        TEST_METHOD(TestMethod_construct_from_float)
+        {
+            padic p2 = padic::construct(7, fraction<long>(905l, 7l), 10);
+            Assert::AreEqual(-1, p2.base());
+            Assert::AreEqual(padic::Type(0), p2.period());
+            Assert::AreEqual({ 2, 3, 4, 2, 0, 0, 0, 0, 0, 0 }, p2.coefs());
+        }
     };
 }

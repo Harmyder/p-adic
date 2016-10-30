@@ -3,6 +3,7 @@
 #include "Core\cont_frac.h"
 
 #include <limits>
+#include <tuple>
 
 using namespace std;
 
@@ -58,10 +59,10 @@ namespace Core
         return f.first / f.second;
     }
 
-    std::pair<long, long> cont_frac::to_fraction(const long max_denom) const {
+    fraction<long> cont_frac::to_fraction(const long max_denom) const {
         if (max_denom <= 0) {
             throw domain_error("Maximum denuminator can't be less than 1");
         }
-        return to_fraction_internal(coefs_, max_denom, true);
+        return fraction<long>(to_fraction_internal(coefs_, max_denom, true));
     }
 }
